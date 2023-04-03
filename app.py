@@ -10,7 +10,7 @@ with open('catboost_heart.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Load the dataset
-df = pd.read_csv('data\heart.csv')
+df = pd.read_csv('heart.csv')
 
 # Add a title and a brief description of the app
 st.title("Heart Disease Prediction App")
