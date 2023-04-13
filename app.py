@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from catboost import CatBoostClassifier
+from PIL import Image
 
 import pickle
 
@@ -13,8 +14,14 @@ with open('catboost_heart.pkl', 'rb') as f:
 df = pd.read_csv('heart.csv')
 
 # Add a title and a brief description of the app
-st.title("Heart Disease Prediction App")
-st.write("This app predicts the likelihood of a patient having heart disease based on various factors.")
+st.title("OBISCOPE")
+st.write("The heart disease prediction app has been developed by 'Precious Heart' team from Nigeria 🇳🇬 for Technovation World Challenge 2023.")
+
+# Load an image file from your local machine or a URL
+image = Image.open('school_logo.jpg')  # Replace with the correct path to your image file or a URL
+
+# Display the image in the app after the description
+st.image(image, caption='Your image caption', use_column_width=True)
 
 # Display a sample of the dataset
 st.write("Here's a sample of the dataset:")
@@ -54,7 +61,7 @@ def app():
         if pred[0] == 0:
             st.write('No heart disease')
             st.write('Great! You have a low risk of heart disease! Keep maintaining a healthy lifestyle by eating a balanced diet, exercising regularly, managing stress, and avoiding smoking and excessive alcohol consumption.')
-    
+
         elif pred[0] == 1:
             st.write('Heart disease detected')
             st.write('It appears that you have a risk of heart disease. It is crucial to consult with a medical professional for a proper diagnosis and management plan. In the meantime, consider making lifestyle changes such as adopting a heart-healthy diet, increasing physical activity, managing stress, quitting smoking, and limiting alcohol intake.')
