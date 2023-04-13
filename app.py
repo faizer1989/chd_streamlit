@@ -49,16 +49,15 @@ def app():
     # Preprocess the user input
     input_df = preprocess_input(age, sex, cp_type, bp, chol, fasting_bs, ecg, max_hr, ex_angina, oldpeak, st_slope)
     
-    # Define the predict button
     if st.button('Predict'):
-        # Use the model to make predictions on the input data
         pred = model.predict(input_df)
-        # Display the predicted result
         if pred[0] == 0:
             st.write('No heart disease')
-        else:
-            st.write('Heart disease present')
+            st.write('Great! You have a low risk of heart disease! Keep maintaining a healthy lifestyle by eating a balanced diet, exercising regularly, managing stress, and avoiding smoking and excessive alcohol consumption.')
+    
+        elif pred[0] == 1:
+            st.write('Heart disease detected')
+            st.write('It appears that you have a risk of heart disease. It is crucial to consult with a medical professional for a proper diagnosis and management plan. In the meantime, consider making lifestyle changes such as adopting a heart-healthy diet, increasing physical activity, managing stress, quitting smoking, and limiting alcohol intake.')
 
-# Run the app
 if __name__ == '__main__':
     app()
