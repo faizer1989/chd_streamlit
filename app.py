@@ -45,7 +45,7 @@ st.write("___")
 
 
 # Display a sample of the dataset
-st.write("Dataset example that were used to build AI prediction model:")
+st.write("Dataset example that was used to build AI prediction model:")
 st.write(df.head())    
 
 # Define a function to preprocess the user input
